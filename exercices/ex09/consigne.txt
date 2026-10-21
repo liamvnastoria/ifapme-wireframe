@@ -1,0 +1,94 @@
+================================================================================
+EXERCICE 09 — BLOCK OU INLINE : display
+================================================================================
+Objectif : comprendre pourquoi certains éléments vont à la ligne et
+           d'autres non, et changer ce comportement.
+Fichiers : index.html, css/style.css (des fonds colorés sont déjà mis
+           pour VOIR la taille des éléments)
+Adresse  : http://127.0.0.1:5500/exercices/ex09/
+
+--------------------------------------------------------------------------------
+À SAVOIR
+--------------------------------------------------------------------------------
+BLOCK  (div, p, h1…h6, ul, li, section, header, footer…)
+       → commence sur une nouvelle ligne et prend TOUTE la largeur.
+       → accepte width, height, margin, padding.
+INLINE (span, a, strong, em, img…)
+       → reste dans la ligne de texte, prend juste la place de son contenu.
+       → IGNORE width et height (et les margin haut/bas).
+
+--------------------------------------------------------------------------------
+(a) OBSERVER
+--------------------------------------------------------------------------------
+Ouvre la page. Les fonds montrent la taille de chaque élément :
+→ les div font toute la largeur, chacune sur sa ligne.
+→ le span, le lien et le strong restent dans la phrase.
+Ouvre F12, survole les éléments, et regarde la ligne « display » dans
+l'onglet « Calculé ».
+
+--------------------------------------------------------------------------------
+(b) INLINE → INLINE-BLOCK
+--------------------------------------------------------------------------------
+1. Écris :
+       .etiquette {
+         width: 100px;
+         padding: 10px;
+         margin: 10px;
+       }
+   → width est ignoré, et le padding haut/bas déborde sur les lignes
+     voisines sans les pousser. Un inline ne se « dimensionne » pas.
+2. Ajoute :   display: inline-block;
+   → Les étiquettes restent sur la même ligne, MAIS acceptent maintenant
+     width, padding et margin. Le meilleur des deux mondes.
+   Ajoute text-align: center; et border-radius: 20px; → des badges.
+
+--------------------------------------------------------------------------------
+(c) INLINE → BLOCK : un menu en boutons
+--------------------------------------------------------------------------------
+1.  .menu a {
+      display: block;
+      padding: 10px;
+      margin-bottom: 4px;
+      color: #ffffff;
+      background-color: #1d3557;
+      text-decoration: none;
+    }
+   → Chaque lien devient une barre pleine largeur, ET toute la barre est
+     cliquable (pas seulement le texte). Vérifie en cliquant sur le bord.
+2. Ajoute   .menu a:hover { background-color: #e63946; }
+3. Remplace display: block par display: inline-block. → Les boutons se
+   mettent côte à côte.
+
+--------------------------------------------------------------------------------
+(d) CACHER : display: none vs visibility: hidden
+--------------------------------------------------------------------------------
+1.  .secret { display: none; }
+    → La boîte B disparaît ET sa place aussi (C remonte).
+2.  Remplace par   .secret { visibility: hidden; }
+    → La boîte B est invisible mais sa place reste (un trou).
+3.  Ctrl+U : dans les deux cas la boîte est TOUJOURS dans le code source.
+    Cacher en CSS ≠ supprimer. Jamais d'info confidentielle cachée en CSS !
+
+--------------------------------------------------------------------------------
+(e) UNE LISTE À L'HORIZONTALE
+--------------------------------------------------------------------------------
+    .horizontal li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    .horizontal {
+      list-style: none;      enlève les puces
+      padding-left: 0;       enlève le retrait par défaut des listes
+    }
+→ C'est l'ancienne façon de faire un menu horizontal. À l'exercice 11, on
+  verra flexbox, beaucoup plus pratique.
+
+--------------------------------------------------------------------------------
+(f) À TOI : RETROUVER LA NATURE DES BALISES
+--------------------------------------------------------------------------------
+Sans F12, devine si ces balises sont block ou inline, puis vérifie en les
+ajoutant dans la page :  <section>  <em>  <li>  <img>  <h3>  <button>
+(Piège : <button> et <img> sont « inline-block » par défaut.)
+
+✔ Réussi quand : tu as des étiquettes en forme de badge, un menu de
+  boutons, et tu sais expliquer block / inline / inline-block / none.

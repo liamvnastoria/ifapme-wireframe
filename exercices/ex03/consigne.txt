@@ -1,0 +1,91 @@
+================================================================================
+EXERCICE 03 — LISTES, LIENS ET TABLEAUX
+================================================================================
+Objectif : organiser du contenu en listes et en tableaux, et relier
+           des pages entre elles.
+Fichiers : index.html, contact.html
+Adresse  : http://127.0.0.1:5500/exercices/ex03/
+
+--------------------------------------------------------------------------------
+(a) LISTE À PUCES : <ul> + <li>
+--------------------------------------------------------------------------------
+Sous le titre (a), écris :
+    <ul>
+      <li>Café</li>
+      ...
+    </ul>
+avec 3 boissons. ul = unordered list (pas d'ordre), li = list item.
+
+--------------------------------------------------------------------------------
+(b) LISTE NUMÉROTÉE : <ol>
+--------------------------------------------------------------------------------
+Sous (b), écris les 4 étapes dans un <ol> :
+    Préparer un café fort / Ajouter de la glace vanille /
+    Ajouter la crème fouettée / Servir.
+→ Les numéros sont automatiques. Inverse deux étapes : ça se renumérote.
+Essaie <ol start="5"> puis <ol reversed>.
+
+--------------------------------------------------------------------------------
+(c) LISTE DANS UNE LISTE
+--------------------------------------------------------------------------------
+Sous (c), fais un <ul> avec : Accueil, La carte, Contact.
+Dans le <li> de « La carte » (AVANT son </li>), ajoute un 2e <ul> avec
+« Boissons » et « Flippers ».
+→ Note : les menus de presque tous les sites sont des <ul> (on verra
+  comment les mettre à l'horizontale à l'exercice 11).
+
+--------------------------------------------------------------------------------
+(d) LIEN EXTERNE : <a href="...">
+--------------------------------------------------------------------------------
+1. Sous (d) :  <a href="https://fr.wikipedia.org/wiki/Flipper">Le flipper sur Wikipédia</a>
+   → Clique. Reviens avec la flèche « Précédent ».
+2. Ajoute target="_blank" dans la balise <a>. → Le lien s'ouvre dans un
+   nouvel onglet.
+3. Ajoute un lien e-mail :  <a href="mailto:contact@cafeflipper.be">Nous écrire</a>
+   (ton logiciel de mail s'ouvre — ferme-le).
+
+--------------------------------------------------------------------------------
+(e) LIENS INTERNES (CHEMINS RELATIFS)
+--------------------------------------------------------------------------------
+1. Sous (e) : un lien vers contact.html (même dossier) :
+       <a href="contact.html">Contact</a>
+2. Dans contact.html, ajoute un lien qui revient vers index.html.
+3. Ajoute dans index.html un lien vers la page de l'exercice 02 :
+       <a href="../ex02/index.html">Exercice 02</a>
+   ..  = « remonte d'un dossier ». Ici : de ex03 → exercices → ex02.
+4. Fais exprès une faute dans le nom (contatc.html) et clique.
+   → Erreur 404 « Not Found » : le fichier n'existe pas à cet endroit.
+
+--------------------------------------------------------------------------------
+(f) ANCRE : LIEN VERS UN ENDROIT DE LA PAGE
+--------------------------------------------------------------------------------
+1. Donne un identifiant au dernier paragraphe :  <p id="bas">Bas de la page.</p>
+2. Tout en haut, sous le <h1> :  <a href="#bas">Aller en bas</a>
+3. Réduis la fenêtre pour qu'il y ait une barre de défilement, clique.
+   → Regarde la barre d'adresse : elle finit par #bas.
+   C'est notre premier « id » : un nom UNIQUE dans la page. On s'en
+   resservira beaucoup en CSS.
+
+--------------------------------------------------------------------------------
+(g) TABLEAU : <table>, <tr>, <th>, <td>
+--------------------------------------------------------------------------------
+Sous (g), fais un tableau de 3 boissons avec leur prix :
+    <table border="1">
+      <tr>
+        <th>Boisson</th>
+        <th>Prix</th>
+      </tr>
+      <tr>
+        <td>Café</td>
+        <td>2,50 €</td>
+      </tr>
+      ...
+    </table>
+tr = une LIGNE (table row), th = une cellule d'en-tête, td = une cellule.
+1. Ajoute une 3e colonne « Taille » (il faut un th et un td PAR ligne).
+2. Ajoute <caption>Nos boissons</caption> juste après <table>.
+3. Enlève border="1" → plus de bordures (on les fera en CSS plus tard).
+Un tableau sert à des DONNÉES en lignes/colonnes, pas à faire la mise en page.
+
+✔ Réussi quand : 3 listes différentes, des liens qui marchent dans les deux
+  sens, une ancre et un tableau de 3 colonnes.

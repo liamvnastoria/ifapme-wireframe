@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 12 - Les formulaires</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Inscription au tournoi</h1>
+
+  <form class="formulaire" action="merci.html">
+    <label for="prenom">Prénom</label>
+    <input type="text" id="prenom" name="prenom" placeholder="ex. Liam" required>
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" placeholder="ex. liam@ifapme.be" required>
+
+    <label for="mdp">Mot de passe</label>
+    <input type="password" id="mdp" name="mdp">
+
+    <label for="age">Âge</label>
+    <input type="number" id="age" name="age" min="12" max="99">
+
+    <label for="date">Date de naissance</label>
+    <input type="date" id="date" name="date">
+
+    <p>Catégorie :</p>
+    <input type="radio" id="debutant" name="categorie" value="debutant">
+    <label for="debutant" class="inline">Débutant</label>
+    <input type="radio" id="confirme" name="categorie" value="confirme">
+    <label for="confirme" class="inline">Confirmé</label>
+
+    <p>
+      <input type="checkbox" id="newsletter" name="newsletter">
+      <label for="newsletter" class="inline">Je veux recevoir la newsletter</label>
+    </p>
+
+    <label for="flipper">Flipper préféré</label>
+    <select id="flipper" name="flipper">
+      <option value="addams">Addams Family</option>
+      <option value="medieval">Medieval Madness</option>
+      <option value="godzilla">Godzilla</option>
+    </select>
+
+    <label for="message">Un message pour l'organisateur ?</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+
+    <button type="submit">S'inscrire</button>
+  </form>
+</body>
+</html>

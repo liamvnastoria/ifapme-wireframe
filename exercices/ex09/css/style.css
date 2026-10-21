@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f1ea;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== (a) Observer : des fonds colorés pour voir la taille des boîtes ===== */
+div {
+  background-color: #a8dadc;
+}
+
+span {
+  background-color: #ffb703;
+}
+
+a {
+  background-color: #e9c46a;
+}
+
+strong {
+  background-color: #f4a261;
+}
+
+/* ===== (b) INLINE → INLINE-BLOCK : des badges ===== */
+.etiquette {
+  display: inline-block;
+  width: 100px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+/* ===== (c) INLINE → BLOCK : un menu en boutons ===== */
+.menu a {
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 4px;
+  color: #ffffff;
+  background-color: #1d3557;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: #e63946;
+}
+
+/* ===== (d) Cacher : la place reste ===== */
+.secret {
+  visibility: hidden;
+}
+
+/* ===== (e) Une liste à l'horizontale ===== */
+.horizontal {
+  list-style: none;
+  padding-left: 0;
+}
+
+.horizontal li {
+  display: inline-block;
+  margin-right: 20px;
+}

@@ -1,0 +1,85 @@
+================================================================================
+EXERCICE 07 — LE TEXTE EN CSS
+================================================================================
+Objectif : rendre un texte agréable à lire (alignement, graisse,
+           interligne…) et styliser les liens.
+Fichiers : index.html, css/style.css
+Adresse  : http://127.0.0.1:5500/exercices/ex07/
+
+Teste CHAQUE propriété une par une : écris-la, Ctrl+S, F5, observe.
+Change les valeurs pour voir l'effet. C'est en jouant qu'on retient.
+
+--------------------------------------------------------------------------------
+(a) ALIGNEMENT : text-align
+--------------------------------------------------------------------------------
+    h1 { text-align: center; }
+Essaie aussi : left, right, justify (sur les paragraphes longs : les deux
+bords bien droits, comme dans un journal).
+
+--------------------------------------------------------------------------------
+(b) GRAISSE ET STYLE : font-weight, font-style
+--------------------------------------------------------------------------------
+    .date { font-weight: bold; }
+    .signature { font-style: italic; text-align: right; }
+font-weight accepte aussi des nombres : 100 (très fin) à 900 (très gras),
+400 = normal, 700 = bold. Avec Arial, tu ne verras que deux niveaux.
+
+--------------------------------------------------------------------------------
+(c) MAJUSCULES : text-transform
+--------------------------------------------------------------------------------
+    .date { text-transform: uppercase; }
+→ Le texte s'affiche en majuscules, mais dans le HTML il reste écrit
+  normalement (Ctrl+U pour vérifier). Essaie aussi : lowercase, capitalize.
+
+--------------------------------------------------------------------------------
+(d) INTERLIGNE ET ESPACEMENT : line-height, letter-spacing
+--------------------------------------------------------------------------------
+    p { line-height: 1.6; }       1.6 = 1,6 fois la taille du texte
+    h1 { letter-spacing: 3px; }   espace entre les lettres
+→ Compare line-height: 1 et line-height: 2 sur les longs paragraphes.
+  Un bon interligne (1.4 à 1.6) rend un texte BEAUCOUP plus lisible.
+
+--------------------------------------------------------------------------------
+(e) TAILLES : px, em, rem, %
+--------------------------------------------------------------------------------
+    .chapeau { font-size: 20px; }
+Essaie ensuite à la place :
+    font-size: 1.25em;     1.25 fois la taille du parent
+    font-size: 1.25rem;    1.25 fois la taille de base de la page (16px)
+    font-size: 125%;
+→ Ici, les 4 donnent la même chose (20px). La différence : si l'utilisateur
+  agrandit la taille du texte dans son navigateur, em/rem/% suivent,
+  px ne suit pas toujours. Pour l'instant, px est très bien.
+
+--------------------------------------------------------------------------------
+(f) LARGEUR DE LECTURE : max-width
+--------------------------------------------------------------------------------
+Agrandis la fenêtre au maximum : les lignes sont très longues, c'est
+fatigant à lire.
+    body { max-width: 700px; }
+→ Les lignes ne dépassent plus 700px. (On centrera à l'exercice 08.)
+
+--------------------------------------------------------------------------------
+(g) LES LIENS : text-decoration, :hover, :visited
+--------------------------------------------------------------------------------
+1.  a { color: #e63946; text-decoration: none; }
+    → plus de soulignement.
+2.  a:hover { text-decoration: underline; }
+    :hover = « quand la souris est dessus ». Passe la souris sur les liens.
+3.  a:visited { color: #6d597a; }
+    = les liens déjà visités. Clique sur le classement mondial, reviens.
+4.  h1 { text-decoration: underline wavy #ffb703; } pour le fun.
+5.  Bonus : .signature:hover { color: #e63946; } → :hover marche sur
+    tous les éléments, pas que les liens.
+
+--------------------------------------------------------------------------------
+(h) LA POLICE : font-family
+--------------------------------------------------------------------------------
+    h1 { font-family: Georgia, "Times New Roman", serif; }
+On donne plusieurs polices : si la 1re n'est pas installée, le navigateur
+prend la suivante. Les noms avec espaces entre guillemets.
+serif = avec empattements, sans-serif = sans, monospace = machine à écrire.
+Essaie  font-family: monospace;  sur .date.
+
+✔ Réussi quand : le texte est centré/justifié proprement, lisible, et les
+  liens réagissent au survol.

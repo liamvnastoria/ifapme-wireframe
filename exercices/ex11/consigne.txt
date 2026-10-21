@@ -1,0 +1,114 @@
+================================================================================
+EXERCICE 11 — FLEXBOX : ALIGNER DES ÉLÉMENTS
+================================================================================
+Objectif : aligner des éléments côte à côte, les espacer et les centrer.
+           Flexbox est l'outil qu'on utilise TOUS LES JOURS pour la mise en
+           page (menus, rangées de cartes, en-têtes…).
+Fichiers : index.html, css/style.css
+Adresse  : http://127.0.0.1:5500/exercices/ex11/
+
+--------------------------------------------------------------------------------
+À SAVOIR
+--------------------------------------------------------------------------------
+On met  display: flex  sur le PARENT (le conteneur). Ce sont ses ENFANTS
+directs qui s'alignent. Toutes les propriétés de (a) à (e) se mettent sur
+le parent.
+    axe principal   →  justify-content  (par défaut : horizontal)
+    axe secondaire  ↓  align-items      (par défaut : vertical)
+
+--------------------------------------------------------------------------------
+(a) ACTIVER FLEX
+--------------------------------------------------------------------------------
+    .rangee { display: flex; }
+→ Les 3 div, qui étaient des blocs empilés, se mettent en ligne.
+→ Elles s'étirent aussi sur toute la hauteur de la rangée (250px). On
+  verra pourquoi en (d).
+
+--------------------------------------------------------------------------------
+(b) ESPACER : gap
+--------------------------------------------------------------------------------
+    .rangee { gap: 20px; }
+→ 20px entre chaque élément (pas avant le 1er, pas après le dernier).
+  Beaucoup plus simple que des margin.
+
+--------------------------------------------------------------------------------
+(c) RÉPARTIR SUR L'AXE PRINCIPAL : justify-content
+--------------------------------------------------------------------------------
+Teste une valeur après l'autre :
+    justify-content: flex-start;      au début (défaut)
+    justify-content: center;          au centre
+    justify-content: flex-end;        à la fin
+    justify-content: space-between;   1er collé à gauche, dernier à droite,
+                                      le reste réparti entre
+    justify-content: space-around;    espace autour de chacun
+    justify-content: space-evenly;    espaces tous égaux
+Astuce : dans F12, à côté de « display: flex » il y a une petite icône :
+clique dessus, un éditeur visuel te laisse tester les valeurs à la souris.
+
+--------------------------------------------------------------------------------
+(d) ALIGNER SUR L'AXE SECONDAIRE : align-items
+--------------------------------------------------------------------------------
+    align-items: stretch;      étirés sur toute la hauteur (défaut, d'où (a))
+    align-items: flex-start;   en haut
+    align-items: center;       au milieu verticalement
+    align-items: flex-end;     en bas
+Combine   justify-content: center;  +  align-items: center;
+→ Les éléments sont PILE au centre de la rangée. (Centrer verticalement
+  était un cauchemar avant flexbox.)
+
+--------------------------------------------------------------------------------
+(e) CHANGER DE DIRECTION : flex-direction
+--------------------------------------------------------------------------------
+    flex-direction: column;
+→ Les éléments s'empilent verticalement. ATTENTION : les axes tournent !
+  Maintenant justify-content agit à la verticale et align-items à
+  l'horizontale. Teste-le.
+Essaie aussi row-reverse et column-reverse. Remets row (défaut) ensuite.
+
+--------------------------------------------------------------------------------
+(f) CAS RÉEL : L'EN-TÊTE DU SITE
+--------------------------------------------------------------------------------
+On veut le logo à gauche, le menu à droite, centrés verticalement.
+1.  .entete {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+2. Le menu est une liste verticale avec des puces. Mets-le en ligne :
+    .menu {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+   → Le <ul> est l'enfant de <nav>, mais c'est le <ul> qui est le
+     conteneur flex de ses <li>. On peut imbriquer des flex.
+3. Ajoute un effet de survol jaune (#ffb703) sur les liens du menu.
+
+--------------------------------------------------------------------------------
+(g) CAS RÉEL : DES CARTES DE MÊME LARGEUR
+--------------------------------------------------------------------------------
+1.  .cartes { display: flex; gap: 24px; }
+    → Les cartes sont côte à côte, mais de largeurs différentes (selon le
+      texte). Et elles ont toutes la même HAUTEUR : merci stretch !
+2.  .carte { flex: 1; }
+    → « partagez l'espace en parts égales » : 3 cartes de même largeur.
+    Essaie flex: 2 sur la carte du milieu : elle prend 2 parts.
+3. Rétrécis la fenêtre au minimum : les cartes s'écrasent.
+    .cartes { flex-wrap: wrap; }
+    .carte { min-width: 220px; }
+    → Quand il n'y a plus la place, les cartes passent à la ligne.
+      Une page qui s'adapte à un téléphone, presque gratuitement.
+    Teste avec F12 → icône téléphone/tablette (mode responsive) en haut à
+    gauche du panneau.
+
+--------------------------------------------------------------------------------
+(h) BONUS : S'ENTRAÎNER EN JOUANT
+--------------------------------------------------------------------------------
+https://flexboxfroggy.com/#fr  — 24 niveaux, gratuit, en français.
+Place les grenouilles sur les nénuphars avec justify-content, align-items,
+flex-direction… Fais-en le plus possible, c'est le meilleur entraînement.
+
+✔ Réussi quand : l'en-tête ressemble à celui du site démo et les 3 cartes
+  ont la même largeur et passent à la ligne sur un petit écran.

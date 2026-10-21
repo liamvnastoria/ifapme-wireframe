@@ -1,0 +1,54 @@
+body {
+  background-color: #f4f1ea;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #1d3557;
+}
+
+/* ===== (a) Un id : un seul élément dans la page ===== */
+#intro {
+  font-size: 22px;
+  color: #e63946;
+}
+
+#tournoi {
+  font-weight: bold;
+}
+
+/* ===== (b) Une class : un groupe d'éléments ===== */
+.important {
+  background-color: #ffb703;
+}
+
+/* ===== (c) Plusieurs classes sur un même élément ===== */
+.nouveau {
+  font-style: italic;
+}
+
+/* ===== (d) Être plus précis ===== */
+p.important {
+  color: #1d3557;
+}
+
+nav a {
+  color: #e63946;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* ===== (e) Qui gagne ? La spécificité ===== */
+#tournoi {
+  color: green;
+}
+
+.important {
+  color: purple;
+}
+
+p {
+  color: gray;
+}

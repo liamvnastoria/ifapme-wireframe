@@ -1,0 +1,62 @@
+================================================================================
+EXERCICE 01 — MA PREMIÈRE PAGE WEB
+================================================================================
+Objectif : comprendre le squelette d'une page HTML et le cycle
+           « je modifie → j'enregistre → je rafraîchis ».
+Fichier  : index.html
+Adresse  : http://127.0.0.1:5500/exercices/ex01/
+
+--------------------------------------------------------------------------------
+À SAVOIR
+--------------------------------------------------------------------------------
+HTML = le CONTENU et sa STRUCTURE (titres, paragraphes, liens…).
+Une page est faite de BALISES : <nom> ouvre, </nom> ferme.
+
+  <!DOCTYPE html>   dit au navigateur « c'est du HTML moderne »
+  <html lang="fr">  la page entière, en français
+  <head>            les infos SUR la page (invisibles dans la page)
+  <meta charset>    l'encodage des caractères (accents !)
+  <title>           le texte affiché dans l'ONGLET du navigateur
+  <body>            tout ce qui est VISIBLE dans la page
+
+--------------------------------------------------------------------------------
+ÉTAPES
+--------------------------------------------------------------------------------
+1. Dans VS Code, ouvre index.html et clique sur « Go Live » (en bas à
+   droite) : la page s'ouvre dans le navigateur avec l'adresse ci-dessus.
+   Puis ouvre-la aussi par double-clic sur le fichier dans l'explorateur.
+   → Compare la barre d'adresse : http://127.0.0.1:5500/... et file:///...
+     Pour du HTML simple, les deux marchent. Avec Live Server, la page se
+     rafraîchit toute seule à chaque Ctrl+S, et c'est déjà un (petit)
+     serveur web, comme pour un vrai site. Prends l'habitude.
+
+2. Dans VS Code, change le texte de <title> en « Page de <ton prénom> ».
+   Enregistre (Ctrl+S), rafraîchis le navigateur (F5).
+   → Où le texte apparaît-il ?
+
+3. Remplace « Bonjour ! » par une phrase sur toi. Ctrl+S, F5.
+   Astuce : un point blanc à côté du nom du fichier dans VS Code = pas
+   enregistré. C'est l'erreur n°1 du débutant (« ça ne change rien ! »).
+
+4. Au-dessus de ta phrase, ajoute un titre :
+       <h1>Je m'appelle ...</h1>
+   et entoure ta phrase d'un paragraphe : <p> ... </p>
+
+5. Ajoute un 2e paragraphe qui contient des accents : « Élève à Liège, ça va ».
+   → Tout s'affiche bien grâce à <meta charset="UTF-8">.
+
+6. Fais un clic droit dans la page → « Afficher le code source » (Ctrl+U).
+   → Le navigateur reçoit exactement ton fichier.
+
+7. Casse quelque chose : supprime le </h1>. Enregistre, rafraîchis.
+   → Que se passe-t-il pour le paragraphe ? Le navigateur ne dit jamais
+     « erreur », il devine… et devine souvent mal. Remets le </h1>.
+
+8. Crée un NOUVEAU fichier page2.html dans le dossier ex01.
+   Tape juste un point d'exclamation  !  puis appuie sur Tab.
+   → VS Code (Emmet) écrit tout le squelette pour toi.
+   Mets lang="fr", un <title> et un <h1>, puis ouvre
+   http://127.0.0.1:5500/exercices/ex01/page2.html
+
+✔ Réussi quand : ta page affiche un titre, deux paragraphes avec accents,
+  le bon texte dans l'onglet, et page2.html existe.

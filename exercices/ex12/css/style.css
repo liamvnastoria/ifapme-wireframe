@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0 20px;
+  background-color: #f4f1ea;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== (g) Le formulaire mis en forme ===== */
+.formulaire {
+  max-width: 500px;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+.formulaire label {
+  display: block;
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+/* Les labels des radios et de la case à cocher restent en ligne */
+.formulaire label.inline {
+  display: inline;
+  font-weight: normal;
+}
+
+.formulaire input[type="text"],
+.formulaire input[type="email"],
+.formulaire input[type="password"],
+.formulaire input[type="number"],
+.formulaire input[type="date"],
+.formulaire select,
+.formulaire textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #999999;
+  border-radius: 6px;
+}
+
+/* Les radios et la checkbox ne doivent pas s'étirer */
+.formulaire input[type="radio"],
+.formulaire input[type="checkbox"] {
+  width: auto;
+}
+
+.formulaire button {
+  margin-top: 16px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1d3557;
+  background-color: #ffb703;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

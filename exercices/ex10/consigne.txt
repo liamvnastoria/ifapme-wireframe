@@ -1,0 +1,122 @@
+================================================================================
+EXERCICE 10 — LE POSITIONNEMENT : position
+================================================================================
+Objectif : déplacer des éléments en dehors du flux normal de la page.
+           C'est LA notion qui pose le plus de problèmes : prends ton temps,
+           change les valeurs, casse, recommence.
+Fichiers : index.html, css/style.css
+Adresse  : http://127.0.0.1:5500/exercices/ex10/
+
+--------------------------------------------------------------------------------
+À SAVOIR : LE FLUX
+--------------------------------------------------------------------------------
+Par défaut, les éléments s'empilent dans l'ordre du HTML, comme des
+briques : c'est le FLUX normal. « position » permet de les sortir de là.
+On les déplace ensuite avec  top, right, bottom, left.
+
+  static    (défaut)  dans le flux, top/left n'ont AUCUN effet
+  relative            décalé par rapport à SA place normale ; sa place reste
+                      réservée
+  absolute            sorti du flux ; placé par rapport au 1er ANCÊTRE
+                      positionné (= qui a une position autre que static)
+  fixed               sorti du flux ; placé par rapport à la FENÊTRE,
+                      ne bouge pas quand on défile
+  sticky              normal… puis « colle » quand on défile jusqu'à lui
+
+--------------------------------------------------------------------------------
+(a) STATIC : top ne fait rien
+--------------------------------------------------------------------------------
+    .b { top: 50px; left: 50px; }
+→ Rien ne bouge. Sans position, top/left sont ignorés (F12 te le signale
+  d'ailleurs avec une icône ⓘ à côté de la propriété).
+
+--------------------------------------------------------------------------------
+(b) RELATIVE : décaler sans déranger
+--------------------------------------------------------------------------------
+    .b { position: relative; top: 50px; left: 50px; }
+→ B se décale de 50px vers le bas et la droite par rapport à sa place.
+→ Regarde C : il NE BOUGE PAS. La place de B est toujours réservée, B
+  chevauche juste C.
+Essaie des valeurs négatives : top: -30px. Essaie right: 20px au lieu de
+left (ça pousse vers la GAUCHE : on s'éloigne du bord droit).
+
+--------------------------------------------------------------------------------
+(c) ABSOLUTE : le piège classique
+--------------------------------------------------------------------------------
+1.  .c { position: absolute; top: 0; right: 0; }
+    → C part tout en haut à droite… de la PAGE entière, pas de la scène !
+       Pourquoi ? Aucun de ses ancêtres n'est positionné, donc il se
+       place par rapport à la page.
+2.  Ajoute   .scene { position: relative; }   (sans top ni left)
+    → C se range dans le coin de la SCÈNE.
+    LA RÈGLE À RETENIR :
+       parent en position: relative  +  enfant en position: absolute
+       = je place l'enfant où je veux DANS le parent.
+3.  Essaie : bottom: 0; left: 0;  puis  bottom: 20px; right: 20px;
+
+--------------------------------------------------------------------------------
+(d) ABSOLUTE SORT DU FLUX
+--------------------------------------------------------------------------------
+Regarde le paragraphe « Je suis le paragraphe après les carrés » :
+→ il est remonté ! C ne prend plus de place dans le flux, les éléments
+  suivants font comme s'il n'existait pas.
+Mets  position: absolute  sur A aussi (sans top/left) : que devient B ?
+
+Remets A sans position avant de continuer.
+
+--------------------------------------------------------------------------------
+(e) QUI EST DEVANT ? z-index
+--------------------------------------------------------------------------------
+B (relative) chevauche maintenant quelque chose. Pour décider qui passe
+devant :
+    .a { position: relative; z-index: 2; top: 60px; left: 30px; }
+    .b { z-index: 1; }
+→ Le plus GRAND z-index passe devant. Inverse les valeurs.
+⚠ z-index ne marche que sur un élément positionné (pas static).
+
+--------------------------------------------------------------------------------
+(f) CAS RÉEL : LE BADGE « NOUVEAU »
+--------------------------------------------------------------------------------
+On veut le badge à cheval sur le bord haut de la carte, à droite.
+    .carte { position: relative; }
+    .badge { position: absolute; top: -12px; right: 16px; }
+→ C'est exactement le badge du site démo (page d'accueil).
+Essaie sans le position: relative de la carte, pour revoir le piège (c).
+
+--------------------------------------------------------------------------------
+(g) FIXED : le bouton « Haut »
+--------------------------------------------------------------------------------
+    .haut { position: fixed; bottom: 20px; right: 20px; }
+→ Fais défiler la page : le bouton reste toujours au même endroit de
+  l'ÉCRAN. Clique dessus : href="#" ramène en haut.
+
+--------------------------------------------------------------------------------
+(h) STICKY : le bandeau qui colle
+--------------------------------------------------------------------------------
+    .bandeau { position: sticky; top: 0; }
+→ Au début, le bandeau est à sa place normale. Fais défiler : il colle en
+  haut de l'écran. Il passe DERRIÈRE les carrés ? Ajoute z-index: 10;
+Compare : mets position: fixed à la place de sticky. → Le bandeau
+recouvre le titre h1 (il ne prend plus de place). Remets sticky.
+C'est le menu du site démo.
+
+--------------------------------------------------------------------------------
+(i) BONUS : CENTRER PILE AU MILIEU
+--------------------------------------------------------------------------------
+Sur A (la scène étant en relative) :
+    .a { position: absolute; top: 50%; left: 50%; }
+→ Le COIN haut-gauche de A est au centre, pas A lui-même.
+Ajoute   transform: translate(-50%, -50%);
+→ recule A de la moitié de SA taille : il est parfaitement centré.
+
+--------------------------------------------------------------------------------
+RÉSUMÉ À RECOPIER DANS TES NOTES
+--------------------------------------------------------------------------------
+  relative  = je me décale, ma place reste    → ou : « je sers de repère »
+  absolute  = je sors du flux, je me place dans le 1er parent positionné
+  fixed     = je me place dans la fenêtre, je ne défile pas
+  sticky    = je colle quand on arrive sur moi
+  z-index   = qui est devant (seulement si positionné)
+
+✔ Réussi quand : C est dans le coin de la scène, le badge est sur le bord
+  de la carte, le bouton « Haut » est fixe et le bandeau colle en haut.

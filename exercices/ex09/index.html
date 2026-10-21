@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice 09 - block et inline</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Block ou inline ?</h1>
+
+  <h2>(a) Observer</h2>
+  <div>Je suis une div.</div>
+  <div>Je suis une autre div.</div>
+  <p>Je suis un paragraphe avec <span>un span</span>, <a href="#">un lien</a> et <strong>du texte important</strong> dedans.</p>
+
+  <h2>(b) Changer de nature</h2>
+  <p>Voici trois étiquettes : <span class="etiquette">Bière</span> <span class="etiquette">Café</span> <span class="etiquette">Soft</span></p>
+
+  <h2>(c) Un menu en boutons</h2>
+  <nav class="menu">
+    <a href="#">Accueil</a>
+    <a href="#">La carte</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <h2>(d) Cacher</h2>
+  <div class="boite">Boîte A</div>
+  <div class="boite secret">Boîte B (secrète)</div>
+  <div class="boite">Boîte C</div>
+
+  <h2>(e) Une liste à l'horizontale</h2>
+  <ul class="horizontal">
+    <li>Addams Family</li>
+    <li>Medieval Madness</li>
+    <li>Twilight Zone</li>
+  </ul>
+
+  <h2>(f) Devine : block ou inline ?</h2>
+  <section>Je suis un section : je suis BLOCK (je prends toute la largeur).</section>
+  <p>Je suis un <em>em</em> : je suis INLINE (je reste dans la phrase).</p>
+  <ul>
+    <li>Je suis un li : je suis BLOCK (je prends toute la largeur).</li>
+  </ul>
+  <p><img src="../../ex04/images/flipper.svg" alt="Dessin d'un flipper" width="60"> Je suis une img : je suis INLINE-BLOCK.</p>
+  <h3>Je suis un h3 : je suis BLOCK.</h3>
+  <button type="button">Je suis un button : je suis INLINE-BLOCK.</button>
+</body>
+</html>

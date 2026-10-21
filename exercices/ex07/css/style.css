@@ -1,0 +1,52 @@
+/* ===== Base ===== */
+body {
+  max-width: 700px;
+  background-color: #f4f1ea;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Titres ===== */
+h1 {
+  text-align: center;
+  letter-spacing: 3px;
+  font-family: Georgia, "Times New Roman", serif;
+  text-decoration: underline wavy #ffb703;
+}
+
+/* ===== Texte ===== */
+.date {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: monospace;
+}
+
+.chapeau {
+  font-size: 20px;
+}
+
+.signature {
+  font-style: italic;
+  text-align: right;
+}
+
+.signature:hover {
+  color: #e63946;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* ===== Liens ===== */
+a {
+  color: #e63946;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #6d597a;
+}

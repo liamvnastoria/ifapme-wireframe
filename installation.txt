@@ -1,0 +1,96 @@
+================================================================================
+ADB — INSTALLATION DE L'ENVIRONNEMENT DE TRAVAIL (SÉANCE 1)
+================================================================================
+Tout est GRATUIT. On utilise tous les mêmes outils pour pouvoir s'entraider.
+
+  OUTIL                 RÔLE                                   OÙ LE TROUVER
+  ────────────────────  ─────────────────────────────────────  ──────────────────────────
+  Visual Studio Code    l'éditeur de code (là où on écrit)     code.visualstudio.com
+  Live Server           extension VS Code : affiche la page    dans VS Code (étape 1)
+                        et la rafraîchit à chaque Ctrl+S
+  Firefox ou Chrome     le navigateur, avec ses outils F12     firefox.com / google.com/chrome
+  Le dossier « adb »    les exercices de la séance             fourni par le formateur (.zip)
+
+Plus tard dans l'année (PAS ce soir) : Git, Node.js et Angular.
+
+--------------------------------------------------------------------------------
+0. AVANT TOUT (WINDOWS) : AFFICHER LES EXTENSIONS DE FICHIERS
+--------------------------------------------------------------------------------
+Explorateur de fichiers → menu « Affichage » → « Afficher » →
+cocher « Extensions de noms de fichiers ».
+Sinon tu risques de créer « index.html.txt » sans le voir.
+
+--------------------------------------------------------------------------------
+1. VISUAL STUDIO CODE ET SES EXTENSIONS
+--------------------------------------------------------------------------------
+1. Télécharge et installe depuis https://code.visualstudio.com
+   Windows : pendant l'installation, coche
+     « Ajouter l'action "Ouvrir avec Code" au menu contextuel » (fichiers
+     ET dossiers) et « Ajouter à PATH ».
+2. Lance VS Code. Ouvre le panneau des extensions : icône des 4 carrés à
+   gauche (ou Ctrl+Shift+X). Installe :
+     - French Language Pack for Visual Studio Code (Microsoft)
+         → redémarre VS Code quand il le propose : il est en français.
+     - Live Server (Ritwick Dey)
+         → un bouton « Go Live » apparaît en bas à droite de VS Code.
+   C'est tout. HTML et CSS sont gérés de base, y compris l'outil Emmet.
+3. Ne pas installer d'assistant IA pour l'instant : on apprend d'abord
+   à écrire soi-même.
+
+--------------------------------------------------------------------------------
+2. METTRE LES EXERCICES EN PLACE
+--------------------------------------------------------------------------------
+1. Décompresse le .zip fourni par le formateur (clic droit → « Extraire
+   tout »). Tu obtiens un dossier « adb ».
+2. Range ce dossier où tu veux, par exemple dans Documents.
+   Vérifie : le dossier adb contient directement index.html, demo,
+   exercices… (et pas un 2e dossier adb dedans !).
+3. Dans VS Code : Fichier → Ouvrir le dossier… → choisis ce dossier adb.
+   Si VS Code demande « Faites-vous confiance aux auteurs ? » → Oui.
+
+--------------------------------------------------------------------------------
+3. VÉRIFIER QUE TOUT MARCHE
+--------------------------------------------------------------------------------
+1. Dans VS Code, ouvre index.html (à la racine de adb) et clique sur
+   « Go Live » en bas à droite. Le pare-feu Windows peut demander une
+   autorisation : accepte.
+   → Le navigateur s'ouvre sur  http://127.0.0.1:5500/  : le sommaire.
+2. Clique sur « Le site démo » : le Café Flipper s'affiche, avec ses
+   3 pages (Accueil, La carte, Contact).
+3. Ouvre exercices/ex01/index.html dans VS Code, change « Bonjour ! » en
+   « Bonjour à tous ! » et fais Ctrl+S.
+   → La page se met à jour toute seule dans le navigateur.
+✔ Les 3 marchent : tu es prêt. Ouvre exercices/ex01/consigne.txt.
+
+--------------------------------------------------------------------------------
+4. DÉPANNAGE
+--------------------------------------------------------------------------------
+Pas de bouton « Go Live » :
+  → Live Server n'est pas installé, ou il faut ouvrir un DOSSIER (Fichier →
+    Ouvrir le dossier) et pas juste un fichier. Sinon : clic droit dans un
+    fichier .html → « Open with Live Server ».
+
+« Not Found » / « Cannot GET » :
+  → Le chemin dans l'adresse ne correspond à aucun fichier. Il y a peut-être
+    un dossier adb dans un dossier adb : ouvre dans VS Code le dossier qui
+    contient directement index.html.
+
+Je modifie le CSS mais rien ne change :
+  → Ctrl+S (enregistré ?), puis Ctrl+F5 (rafraîchissement forcé : le
+    navigateur garde parfois l'ancien CSS en mémoire).
+
+Le port 5500 est déjà utilisé (une 2e fenêtre VS Code avec Live Server) :
+  → Clique sur « Port : 5500 » en bas à droite pour l'arrêter, ou ferme
+    l'autre fenêtre.
+
+--------------------------------------------------------------------------------
+5. RACCOURCIS UTILES DANS VS CODE (WINDOWS ; Cmd au lieu de Ctrl sur Mac)
+--------------------------------------------------------------------------------
+  Ctrl+S            enregistrer
+  Ctrl+Z / Ctrl+Y   annuler / rétablir
+  Ctrl+:  (Ctrl+/)  commenter / décommenter la ligne
+  Alt+Shift+F       remettre le code bien en forme (indentation)
+  Alt+↑ / Alt+↓     déplacer une ligne
+  Ctrl+D            sélectionner le mot suivant identique (multi-curseur)
+  !  puis Tab       squelette HTML complet (Emmet, dans un fichier .html)
+  ul>li*3  puis Tab une liste de 3 éléments (Emmet)

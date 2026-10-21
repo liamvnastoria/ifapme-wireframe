@@ -1,0 +1,121 @@
+================================================================================
+EXERCICE 12 — LES FORMULAIRES HTML
+================================================================================
+Objectif : construire un formulaire (les champs à remplir) et voir ce qu'il
+           ENVOIE.
+Fichiers : index.html, css/style.css
+Adresse  : http://127.0.0.1:5500/exercices/ex12/
+
+--------------------------------------------------------------------------------
+(a) UN PREMIER CHAMP
+--------------------------------------------------------------------------------
+Sous le <h1>, écris :
+    <form>
+      <label for="prenom">Prénom</label>
+      <input type="text" id="prenom" name="prenom">
+
+      <button type="submit">S'inscrire</button>
+    </form>
+  <form>    le formulaire (le « paquet » qui sera envoyé)
+  <label>   le texte du champ. for="prenom" le relie à l'input id="prenom"
+  <input>   le champ (pas de balise fermante)
+  name      le NOM sous lequel la valeur sera envoyée (indispensable !)
+1. Clique sur le mot « Prénom » → le curseur saute dans le champ.
+   C'est le lien for/id : plus pratique, et indispensable pour les lecteurs
+   d'écran.
+2. Tape ton prénom et clique sur S'inscrire. REGARDE LA BARRE D'ADRESSE :
+       .../ex12/index.html?prenom=Justin
+   Le formulaire a envoyé  nom=valeur  dans l'adresse. Un programme côté serveur pourra lire ça.
+
+--------------------------------------------------------------------------------
+(b) LES TYPES DE CHAMPS
+--------------------------------------------------------------------------------
+Ajoute ces champs AVANT le bouton, chacun avec son <label> :
+    <input type="email" id="email" name="email">
+    <input type="password" id="mdp" name="mdp">
+    <input type="number" id="age" name="age" min="12" max="99">
+    <input type="date" id="date" name="date">
+→ Teste chacun : le navigateur adapte le champ (points pour le mot de passe,
+  flèches pour le nombre, calendrier pour la date). Sur téléphone, le
+  clavier change aussi (@ pour email, chiffres pour number).
+
+--------------------------------------------------------------------------------
+(c) CHOIX MULTIPLES : radio, checkbox, select
+--------------------------------------------------------------------------------
+1. UN seul choix parmi plusieurs (radio) : même name pour tous !
+    <p>Catégorie :</p>
+    <input type="radio" id="debutant" name="categorie" value="debutant">
+    <label for="debutant">Débutant</label>
+    <input type="radio" id="confirme" name="categorie" value="confirme">
+    <label for="confirme">Confirmé</label>
+   → Change le name d'un des deux : tu peux cocher les deux. Remets-le.
+2. Case à cocher (checkbox) :
+    <input type="checkbox" id="newsletter" name="newsletter">
+    <label for="newsletter">Je veux recevoir la newsletter</label>
+3. Liste déroulante (select) :
+    <label for="flipper">Flipper préféré</label>
+    <select id="flipper" name="flipper">
+      <option value="addams">Addams Family</option>
+      <option value="medieval">Medieval Madness</option>
+      <option value="godzilla">Godzilla</option>
+    </select>
+4. Envoie le formulaire et lis la barre d'adresse : retrouve chaque name et
+   sa valeur. Que contient categorie ? Le value, pas le texte affiché.
+
+--------------------------------------------------------------------------------
+(d) TEXTE LONG : <textarea>
+--------------------------------------------------------------------------------
+    <label for="message">Un message pour l'organisateur ?</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+<textarea> a une balise fermante (contrairement à input).
+
+--------------------------------------------------------------------------------
+(e) AIDER ET CONTRÔLER : placeholder, required
+--------------------------------------------------------------------------------
+1. Ajoute  placeholder="ex. Justin"  sur le prénom → texte gris d'exemple.
+2. Ajoute  required  sur le prénom et l'email. Clique sur S'inscrire avec
+   les champs vides → le navigateur bloque et affiche un message.
+3. Tape « abc » dans l'email → refusé : pas de @.
+⚠ Ce contrôle se contourne facilement (F12 → supprimer required). Le serveur
+  devra TOUJOURS revérifier. Ne jamais faire confiance au navigateur.
+
+--------------------------------------------------------------------------------
+(f) GET OU POST ?
+--------------------------------------------------------------------------------
+Par défaut, le formulaire envoie en GET : les données sont dans l'adresse.
+1. Écris  <form method="post">  et renvoie le formulaire.
+   → Plus rien dans l'adresse ! Les données sont envoyées « dans le
+     colis » (F12 → onglet Réseau → clique sur la requête → Charge utile).
+   → Et la page affiche une erreur (« Cannot POST ») : le navigateur a bien
+     envoyé les données, mais il n'y a aucun programme sur le serveur pour
+     les recevoir. Ce sera le travail de la partie « application » du site,
+     plus tard dans l'année.
+2. Quand utiliser quoi ?
+     GET   pour CHERCHER (une recherche Google : on peut copier le lien)
+     POST  pour ENVOYER / MODIFIER (inscription, mot de passe, commande)
+   Un vrai formulaire d'inscription serait en POST (il y a un mot de passe !).
+   Pour la suite de l'exercice, retire method="post".
+3. Ajoute  action="merci.html"  dans <form> : c'est la page qui reçoit le
+   formulaire. Crée merci.html avec juste « Merci pour ton inscription ! ».
+   (merci.html ne peut pas LIRE les données : il faudra un programme pour ça.)
+
+--------------------------------------------------------------------------------
+(g) METTRE EN FORME
+--------------------------------------------------------------------------------
+Dans style.css, avec ce que tu as appris :
+- ajoute la classe "formulaire" au <form> ; donne-lui une largeur maximale
+  de 500px, un fond blanc, un padding et des coins arrondis ;
+- les <label> en display: block, en gras, avec un margin-top ;
+- les input (texte, email…), select et textarea en width: 100% avec un
+  padding de 8px ;
+- le bouton : fond jaune #ffb703, sans bordure, padding, et
+  cursor: pointer; (la main au survol).
+Problème : les radios et la checkbox font aussi 100% de large. Corrige avec
+un sélecteur d'attribut :
+    .formulaire input[type="radio"],
+    .formulaire input[type="checkbox"] { width: auto; }
+Et leurs labels ne doivent pas être en block :  donne-leur une classe
+"inline" et  .formulaire label.inline { display: inline; font-weight: normal; }
+
+✔ Réussi quand : le formulaire a tous les types de champs, est envoyé
+  vers merci.html, et est joliment mis en forme.

@@ -1,0 +1,116 @@
+================================================================================
+EXERCICE 08 — LE MODÈLE DE BOÎTE (BOX MODEL)
+================================================================================
+Objectif : comprendre que TOUT élément est une boîte rectangulaire, et
+           maîtriser ses 4 couches : contenu, padding, border, margin.
+Fichiers : index.html, css/style.css
+Adresse  : http://127.0.0.1:5500/exercices/ex08/
+
+--------------------------------------------------------------------------------
+À SAVOIR : LES 4 COUCHES D'UNE BOÎTE
+--------------------------------------------------------------------------------
+        ┌───────────── margin (marge extérieure, transparente) ─────┐
+        │   ┌───────── border (la bordure) ──────────────────────┐  │
+        │   │   ┌───── padding (marge intérieure, a le fond) ─┐  │  │
+        │   │   │                                             │  │  │
+        │   │   │        CONTENU  (width × height)            │  │  │
+        │   │   │                                             │  │  │
+        │   │   └─────────────────────────────────────────────┘  │  │
+        │   └────────────────────────────────────────────────────┘  │
+        └───────────────────────────────────────────────────────────┘
+Pense à un cadre photo : la photo (contenu), le passe-partout blanc
+(padding), le cadre en bois (border), et l'espace sur le mur jusqu'au
+cadre voisin (margin).
+
+Toutes les règles de cet exercice vont dans  .boite { ... }  (les 3 boîtes
+ont cette classe), sauf indication contraire.
+
+--------------------------------------------------------------------------------
+(a) LARGEUR : width
+--------------------------------------------------------------------------------
+    .boite { width: 300px; }
+→ Par défaut, une <div> prend toute la largeur. Maintenant 300px.
+Essaie  width: 50%;  et redimensionne la fenêtre. % = du parent (ici body).
+
+--------------------------------------------------------------------------------
+(b) HAUTEUR : height (et le débordement)
+--------------------------------------------------------------------------------
+    .boite { height: 80px; }
+→ Regarde la boîte 2 : le texte DÉBORDE et chevauche la boîte 3 !
+Essaie dans .boite-2 :  overflow: hidden;  puis  overflow: auto;
+Leçon : on fixe rarement la hauteur d'une boîte qui contient du texte.
+Retire height (et overflow) avant de continuer.
+
+--------------------------------------------------------------------------------
+(c) PADDING : l'espace INTÉRIEUR
+--------------------------------------------------------------------------------
+    .boite { padding: 20px; }
+→ Le texte ne colle plus au bord. Le fond coloré s'étend dans le padding.
+
+--------------------------------------------------------------------------------
+(d) BORDER : la bordure
+--------------------------------------------------------------------------------
+    .boite { border: 3px solid #1d3557; }
+3 infos : épaisseur, style, couleur. Essaie les styles dashed, dotted,
+double. Essaie une seule bordure :  border-left: 8px solid #e63946;
+
+--------------------------------------------------------------------------------
+(e) MARGIN : l'espace EXTÉRIEUR
+--------------------------------------------------------------------------------
+    .boite { margin: 20px; }
+→ Les boîtes s'écartent. La marge, elle, est transparente.
+Curiosité : entre deux boîtes, l'espace fait 20px et pas 40px ! Les marges
+verticales voisines « fusionnent » (on garde la plus grande).
+
+--------------------------------------------------------------------------------
+(f) LES RACCOURCIS : 1, 2 ou 4 valeurs
+--------------------------------------------------------------------------------
+    margin: 20px;                  les 4 côtés
+    margin: 10px 40px;             haut/bas  puis  gauche/droite
+    margin: 0 0 30px 60px;         haut, droite, bas, gauche
+                                   (sens des aiguilles d'une montre)
+    margin-top: 50px;              un seul côté (aussi -right -bottom -left)
+Même chose pour padding. Teste-les sur la boîte 3.
+
+--------------------------------------------------------------------------------
+(g) CENTRER UNE BOÎTE : margin auto
+--------------------------------------------------------------------------------
+    .boite { width: 300px; margin: 20px auto; }
+→ auto à gauche et à droite = le navigateur partage l'espace restant :
+  la boîte est centrée. Ça ne marche QUE si la boîte a une largeur.
+  (C'est ce qu'on fera pour centrer le contenu de tout un site.)
+Attention : text-align: center centre le TEXTE dans la boîte, margin auto
+centre la BOÎTE elle-même. Essaie les deux.
+
+--------------------------------------------------------------------------------
+(h) LA VRAIE LARGEUR ET box-sizing
+--------------------------------------------------------------------------------
+1. Ouvre F12, sélectionne une boîte. En bas du panneau « Styles » (ou onglet
+   « Calculé » / « Mise en page ») : un schéma de la boîte avec toutes les
+   couches. Passe la souris dessus.
+2. Calcule : width 300 + padding 20+20 + border 3+3 = ? Vérifie la largeur
+   affichée par F12. → La boîte fait 346px, pas 300 ! Piégeux.
+3. Ajoute TOUT EN HAUT de style.css :
+       * { box-sizing: border-box; }
+   * = tous les éléments. Maintenant width = la boîte entière, bordure
+   comprise : 300px, c'est 300px. On met cette ligne dans TOUS nos projets.
+
+--------------------------------------------------------------------------------
+(i) LA MARGE CACHÉE DU NAVIGATEUR
+--------------------------------------------------------------------------------
+Il y a un petit espace blanc autour de la page. Avec F12, clique sur <body> :
+le navigateur lui donne margin: 8px par défaut.
+    body { margin: 0; }
+→ Les boîtes peuvent maintenant toucher le bord (si on enlève leur margin).
+Les <h1>, <p>, <ul> ont aussi des marges par défaut : F12 te les montre
+toujours en orange quand tu survoles l'élément.
+
+--------------------------------------------------------------------------------
+(j) COINS ARRONDIS : border-radius
+--------------------------------------------------------------------------------
+    .boite { border-radius: 12px; }
+Sur la boîte 1 : width: 150px; height: 150px; border-radius: 50%;
+→ un cercle !
+
+✔ Réussi quand : les 3 boîtes sont centrées, espacées, avec padding et
+  bordure, et tu peux expliquer avec F12 la largeur réelle d'une boîte.

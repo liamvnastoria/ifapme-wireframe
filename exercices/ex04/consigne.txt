@@ -1,0 +1,88 @@
+================================================================================
+EXERCICE 04 — IMAGES ET STRUCTURE D'UNE PAGE
+================================================================================
+Objectif : insérer une image et découper une page en grandes zones qui ont
+           un SENS (en-tête, menu, contenu principal, pied de page).
+Fichiers : index.html, images/flipper.svg
+Adresse  : http://127.0.0.1:5500/exercices/ex04/
+
+--------------------------------------------------------------------------------
+(a) UNE IMAGE : <img src="..." alt="...">
+--------------------------------------------------------------------------------
+1. Sous « Bienvenue », ajoute :
+       <img src="images/flipper.svg" alt="Dessin d'un flipper">
+   src = le chemin du fichier (ici : dans le sous-dossier images)
+   alt = le texte de remplacement : lu par les lecteurs d'écran pour les
+         personnes aveugles, et affiché si l'image ne charge pas.
+   <img> n'a pas de balise fermante.
+2. Ajoute width="200" dans la balise. → L'image rétrécit.
+3. Casse le chemin (src="images/fliper.svg"). → Le texte alt s'affiche.
+   Répare.
+4. Ajoute une image venant d'internet (clic droit sur une image d'un site →
+   « Copier l'adresse de l'image ») et colle l'adresse dans src.
+   → Ça marche, mais si le site supprime l'image, ton site est cassé.
+   En vrai projet, on télécharge les images dans son dossier images/.
+
+--------------------------------------------------------------------------------
+(b) LE TEXTE : TITRES ET PARAGRAPHES
+--------------------------------------------------------------------------------
+Balise le texte avec ce que tu connais (ex02 et ex03) :
+- « Café Flipper » (le nom du site, en haut) → un <p> pour l'instant
+- le menu → une liste <ul> de 3 liens <a href="#">  (# = lien vide)
+- « Bienvenue » → <h1>
+- « Nos machines » et « Le saviez-vous ? » → <h2>
+- le reste → des <p>
+
+--------------------------------------------------------------------------------
+(c) LES ZONES SÉMANTIQUES
+--------------------------------------------------------------------------------
+Entoure les morceaux de la page avec ces balises :
+
+  <header>   l'en-tête du site (nom du site + menu)
+  <nav>      le menu de navigation (à l'intérieur du header)
+  <main>     le contenu principal, UNIQUE dans la page
+  <section>  une partie de la page qui a un titre (« Bienvenue »,
+             « Nos machines »)
+  <article>  un contenu qui se tient tout seul (chaque machine, ou un
+             article de blog)
+  <aside>    un contenu « à côté » (le « Le saviez-vous ? »)
+  <footer>   le pied de page (adresse, copyright)
+
+Le schéma attendu :
+  body
+   ├─ header
+   │   ├─ p (nom du site)
+   │   └─ nav
+   │       └─ ul (menu)
+   ├─ main
+   │   ├─ section (Bienvenue + image + texte)
+   │   ├─ section (Nos machines)
+   │   │   ├─ article (Addams Family)
+   │   │   └─ article (Medieval Madness)
+   │   └─ aside (Le saviez-vous ?)
+   └─ footer
+
+→ Rafraîchis : RIEN n'a changé visuellement ! C'est normal.
+  Ces balises donnent du SENS : Google comprend mieux la page, un lecteur
+  d'écran peut sauter directement au menu ou au contenu.
+  C'est la base de l'accessibilité.
+
+--------------------------------------------------------------------------------
+(d) LA BOÎTE SANS SENS : <div>
+--------------------------------------------------------------------------------
+<div> est une boîte générique, comme <span> mais pour des blocs.
+On l'utilise quand AUCUNE balise sémantique ne convient, juste pour
+regrouper des éléments (pour le CSS).
+Entoure l'image et le paragraphe de Bienvenue d'un <div>.
+→ Toujours rien de visible. Le CSS arrive à l'exercice suivant !
+
+--------------------------------------------------------------------------------
+(e) OBSERVER AVEC LES OUTILS DE DÉVELOPPEMENT (F12)
+--------------------------------------------------------------------------------
+Appuie sur F12 (ou clic droit → « Inspecter »). Onglet « Éléments » /
+« Inspecteur » : tu vois l'arbre de ta page. Déplie header, main…
+Passe la souris sur une balise → elle s'illumine dans la page.
+Tu utiliseras cet outil À CHAQUE exercice à partir de maintenant.
+
+✔ Réussi quand : l'image s'affiche avec un alt, et l'arbre F12 correspond
+  au schéma ci-dessus.

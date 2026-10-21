@@ -1,0 +1,92 @@
+================================================================================
+EXERCICE 06 — CIBLER UN ÉLÉMENT PRÉCIS : id ET class
+================================================================================
+Objectif : appliquer un style à UN élément ou à un GROUPE d'éléments, et
+           comprendre qui gagne quand deux règles se contredisent.
+Fichiers : index.html, css/style.css
+Adresse  : http://127.0.0.1:5500/exercices/ex06/
+
+Avec   p { ... }   on change TOUS les paragraphes. Mais comment changer
+seulement le 3e ? Il faut lui donner un nom.
+
+--------------------------------------------------------------------------------
+(a) L'id : UN SEUL ÉLÉMENT
+--------------------------------------------------------------------------------
+1. Dans index.html, ajoute un id au 1er paragraphe :
+       <p id="intro">Un bar à flippers au cœur de Liège.</p>
+2. Dans style.css, l'id se cible avec un #  :
+       #intro {
+         font-size: 22px;
+         color: #e63946;
+       }
+→ Seul ce paragraphe change.
+3. Ajoute id="tournoi" au paragraphe du tournoi et mets-le en gras
+   (font-weight: bold;).
+RÈGLE : un id est UNIQUE dans la page (comme un numéro national).
+Essaie de mettre id="intro" sur un 2e paragraphe : le navigateur l'applique
+quand même… mais c'est une ERREUR (le JavaScript, les ancres #intro, les
+validateurs, eux, ne fonctionneront pas). Retire-le.
+
+--------------------------------------------------------------------------------
+(b) LA class : UN GROUPE D'ÉLÉMENTS
+--------------------------------------------------------------------------------
+1. Ajoute class="important" au paragraphe des horaires, à celui du parking
+   et au <li> « Godzilla ».
+2. Dans style.css, la classe se cible avec un point  .  :
+       .important {
+         background-color: #ffb703;
+       }
+→ Les 3 éléments changent, même s'ils ne sont pas du même type.
+Une classe se réutilise autant qu'on veut. En pratique, on utilise
+BEAUCOUP de classes et TRÈS PEU d'id pour le CSS.
+
+--------------------------------------------------------------------------------
+(c) PLUSIEURS CLASSES SUR UN ÉLÉMENT
+--------------------------------------------------------------------------------
+1. Au <li> Godzilla, mets :  class="important nouveau"  (séparées par un
+   espace).
+2. Écris :   .nouveau { font-style: italic; }
+→ Le <li> reçoit les deux styles. Une classe = un rôle.
+
+--------------------------------------------------------------------------------
+(d) ÊTRE PLUS PRÉCIS : COMBINER
+--------------------------------------------------------------------------------
+1.   p.important { color: #1d3557; }
+     = les <p> qui ont la classe important (pas le <li>). Vérifie.
+2.   nav a { color: #e63946; }
+     = les <a> qui sont DANS un <nav> (espace = « à l'intérieur de »).
+     → Le lien « écrivez-nous » en bas de page ne change pas !
+3.   ul li { margin-bottom: 8px; }   (les li dans un ul)
+
+--------------------------------------------------------------------------------
+(e) QUI GAGNE ? (LA SPÉCIFICITÉ)
+--------------------------------------------------------------------------------
+Ajoute ces trois règles, dans CET ordre, à la fin du fichier :
+       #tournoi   { color: green; }
+       .important { color: purple; }
+       p          { color: gray; }
+Puis ajoute class="important" au paragraphe du tournoi.
+→ De quelle couleur est-il ? Et les autres paragraphes ?
+   Le plus précis gagne, peu importe l'ordre :
+       style="..."  >  #id  >  .classe  >  balise
+   À précision égale, c'est la dernière règle écrite qui gagne.
+Dans F12, clique sur le paragraphe : les règles perdantes sont barrées.
+
+--------------------------------------------------------------------------------
+(f) TESTER EN DIRECT DANS F12
+--------------------------------------------------------------------------------
+Dans F12, panneau « Styles », clique sur une valeur (ex. green) et
+change-la : la page change en direct. Ajoute une propriété en cliquant
+dans une règle.
+⚠ Rien n'est enregistré dans ton fichier ! Rafraîchis : tout est perdu.
+F12 sert à TESTER, puis on recopie la bonne valeur dans style.css.
+
+--------------------------------------------------------------------------------
+BONNES PRATIQUES DE NOMMAGE
+--------------------------------------------------------------------------------
+- minuscules, sans accent ni espace : .carte-boisson  et pas .Carte Boisson
+- un nom qui dit le RÔLE (.important, .prix) plutôt que l'apparence (.rouge) :
+  le jour où le client veut du bleu, .rouge devient absurde.
+
+✔ Réussi quand : tu sais expliquer pourquoi le paragraphe du tournoi a la
+  couleur qu'il a.

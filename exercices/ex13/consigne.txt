@@ -1,0 +1,95 @@
+================================================================================
+EXERCICE 13 — RECRÉER LA PAGE D'ACCUEIL DU SITE DÉMO (HTML + CSS)
+================================================================================
+Objectif : utiliser TOUT ce qu'on a vu (ex01 à ex11) pour reproduire la
+           page d'accueil du Café Flipper.
+Fichiers : index.html (le texte est là, sans balises), css/style.css (vide)
+Modèle   : http://127.0.0.1:5500/demo/          ← ouvre-le dans un 2e onglet
+Ta page  : http://127.0.0.1:5500/exercices/ex13/
+
+Règle du jeu : essaie d'abord SANS regarder le code du démo. Si tu bloques
+plus de 10 minutes sur un point, tu as le droit d'inspecter le démo avec F12
+(c'est aussi comme ça qu'on apprend dans le métier).
+Couleurs utilisées : bleu #1d3557, rouge #e63946, jaune #ffb703,
+fond #f4f1ea, blanc #ffffff.
+
+--------------------------------------------------------------------------------
+ÉTAPE 1 — LA STRUCTURE HTML (ex02, ex03, ex04)
+--------------------------------------------------------------------------------
+Sans aucun CSS, balise le texte. Le schéma attendu :
+  body
+   ├─ header  class="site-header"
+   │   ├─ a  class="logo"  (vers index.html)
+   │   └─ nav
+   │       └─ ul  class="menu"  → 3 li avec un lien chacun
+   │          (index.html, carte.html, contact.html)
+   ├─ main
+   │   ├─ section  class="hero"
+   │   │   ├─ h1
+   │   │   ├─ p
+   │   │   └─ a  class="button"  (vers carte.html)
+   │   └─ section  class="cards"
+   │       └─ 3 × article  class="card"  → h2 + p
+   │          (le 1er contient aussi  span class="badge"  « Nouveau »)
+   └─ footer  class="site-footer"  → p   (© s'écrit &copy;)
+Vérifie avec F12 que ton arbre correspond.
+
+--------------------------------------------------------------------------------
+ÉTAPE 2 — LES BASES CSS (ex05, ex08)
+--------------------------------------------------------------------------------
+Relie style.css. Puis :
+- box-sizing: border-box pour tout le monde ;
+- body : plus de marge, police Arial, interligne 1.5, fond #f4f1ea ;
+- main : largeur maximale 960px, centré (margin auto), padding 32px 16px.
+
+--------------------------------------------------------------------------------
+ÉTAPE 3 — L'EN-TÊTE (ex07, ex11)
+--------------------------------------------------------------------------------
+- .site-header : fond bleu, padding 16px 32px, logo à gauche et menu à
+  droite, centrés verticalement (flex) ;
+- .logo : blanc, 24px, gras, pas souligné ;
+- .menu : en ligne, 24px d'écart, sans puces, sans marge ni padding ;
+- liens du menu : blancs, pas soulignés, jaunes au survol.
+
+--------------------------------------------------------------------------------
+ÉTAPE 4 — LE BANDEAU .hero (ex07, ex08, ex09)
+--------------------------------------------------------------------------------
+- fond rouge, texte blanc centré, padding 48px 16px, coins arrondis 12px ;
+- le h1 dedans : 40px, sans marge en haut ;
+- .button : un lien qui ressemble à un bouton (inline-block, padding
+  12px 24px, fond jaune, texte bleu gras, pas souligné, coins 6px) ;
+  fond blanc au survol.
+
+--------------------------------------------------------------------------------
+ÉTAPE 5 — LES CARTES (ex08, ex11)
+--------------------------------------------------------------------------------
+- .cards : en ligne, 24px d'écart, passent à la ligne si besoin,
+  margin-top 32px ;
+- .card : parts égales (flex: 1), largeur minimale 220px, padding 24px,
+  fond blanc, bordure bleue de 2px, coins 12px ;
+- le h2 des cartes en bleu, sans marge en haut.
+
+--------------------------------------------------------------------------------
+ÉTAPE 6 — LE BADGE (ex10)
+--------------------------------------------------------------------------------
+- « Nouveau » à cheval sur le bord haut de la 1re carte, à 16px du bord
+  droit (top: -12px). Tu te rappelles du couple relative / absolute ?
+- badge : padding 4px 10px, 14px, blanc sur rouge, coins 20px.
+
+--------------------------------------------------------------------------------
+ÉTAPE 7 — LE PIED DE PAGE ET LE MENU QUI COLLE (ex10)
+--------------------------------------------------------------------------------
+- .site-footer : texte centré, blanc sur bleu, padding 24px ;
+- l'en-tête reste collé en haut quand on fait défiler (sticky, z-index 10).
+  Pour tester : réduis la hauteur de la fenêtre.
+
+--------------------------------------------------------------------------------
+ÉTAPE 8 — COMPARER
+--------------------------------------------------------------------------------
+Mets les deux onglets côte à côte et compare au pixel près. Rétrécis la
+fenêtre : les deux pages doivent réagir pareil.
+Bonus : crée aussi carte.html et contact.html sur le même modèle (même
+en-tête, même pied de page) en t'inspirant du démo. Le tableau et le
+formulaire reprennent ce que tu as fait aux exercices 03 et 12.
+
+✔ Réussi quand : on ne voit plus la différence entre ta page et le démo.

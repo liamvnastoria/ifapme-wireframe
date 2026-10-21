@@ -1,0 +1,33 @@
+================================================================================
+ADB — ATELIER DÉVELOPPEMENT, BASES — SÉANCE 1
+================================================================================
+
+1. OÙ METTRE CE DOSSIER ?
+   Où tu veux, par exemple dans Documents :  Documents\adb
+   (voir installation.txt pour les détails).
+
+2. PAR OÙ COMMENCER ?
+   Dans VS Code : Fichier → Ouvrir le dossier… → le dossier adb.
+   Ouvre index.html et clique sur « Go Live » en bas à droite.
+   Le navigateur s'ouvre sur  http://127.0.0.1:5500/  : c'est le sommaire.
+   Regarde le site démo, puis fais les exercices DANS L'ORDRE.
+
+3. CONTENU
+   demo/          le site « Café Flipper » : le but à atteindre
+   exercices/     13 exercices, du plus simple au plus complet
+                  ex01 à ex04  HTML
+                  ex05 à ex13  CSS (et formulaires)
+
+4. DANS CHAQUE EXERCICE
+   consigne.txt   l'énoncé, à lire dans VS Code (à gauche) pendant que tu
+                  codes (à droite) : clic droit sur l'onglet → « Fractionner
+                  à droite »
+   les fichiers à modifier.
+
+5. LE RÉFLEXE QUAND ÇA NE MARCHE PAS
+   1) Ai-je enregistré ? (Ctrl+S — point blanc sur l'onglet = pas enregistré)
+   2) Ai-je rafraîchi ? (Live Server le fait seul ; sinon F5, ou Ctrl+F5 si
+      le CSS ne se met pas à jour)
+   3) F12 : l'élément a-t-il bien la classe / l'id ? La règle est-elle barrée ?
+   4) Une faute de frappe ? (un ; oublié, une } en trop, un nom de classe
+      différent dans le HTML et dans le CSS, un mauvais chemin de fichier)

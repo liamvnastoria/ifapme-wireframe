@@ -1,0 +1,81 @@
+================================================================================
+EXERCICE 02 — LE TEXTE EN HTML
+================================================================================
+Objectif : connaître les balises de texte et leur RÔLE (le sens),
+           pas seulement leur apparence.
+Fichier  : index.html (le texte est déjà là, il faut le baliser)
+Adresse  : http://127.0.0.1:5500/exercices/ex02/
+
+Commence par ouvrir la page telle quelle : tout est collé sur une ligne !
+Le navigateur ignore les retours à la ligne du code.
+Enlève les repères (a), (b)… au fur et à mesure.
+
+--------------------------------------------------------------------------------
+(a) LES TITRES : <h1> à <h6>
+--------------------------------------------------------------------------------
+Mets « Histoire du flipper » en <h1>, « Les débuts » en <h2>,
+« Les années 30 » et « Le bumper » en <h3>, « Aujourd'hui » en <h2>.
+→ Observe les tailles. Essaie aussi un <h6>.
+RÈGLE : un seul <h1> par page (le sujet de la page), puis une hiérarchie
+logique, comme la table des matières d'un livre. On ne choisit PAS un titre
+pour sa taille : la taille, c'est le CSS qui s'en occupera.
+
+--------------------------------------------------------------------------------
+(b) PARAGRAPHES ET RETOURS À LA LIGNE : <p>, <br>
+--------------------------------------------------------------------------------
+1. Entoure les 3 lignes (b) d'UN seul <p>. → Tout est sur une ligne et les
+   espaces multiples sont réduits à un seul.
+2. Ajoute <br> à la fin de la 1re et de la 2e ligne. → Retour à la ligne.
+   <br> n'a pas de balise fermante (comme <meta>, <img>, <hr>…).
+3. Transforme maintenant en 3 <p> séparés. → Remarque l'espace entre eux.
+   <br> = retour à la ligne DANS un paragraphe (une adresse, un poème).
+   <p>  = un nouveau paragraphe.
+
+--------------------------------------------------------------------------------
+(c) METTRE EN VALEUR : <strong>, <em>, <mark>, <small>, <sup>, <sub>
+--------------------------------------------------------------------------------
+Mets chaque ligne (c) dans un <p>, puis :
+1. « Attention » en <strong> (important) → gras.
+2. « jamais » en <em> (insistance) → italique.
+3. « 12 millions » en <mark> → surligné.
+4. Ajoute à la fin de la 2e ligne : <small>(prix TVAC)</small>
+5. Écris m² avec <sup> : 80 m<sup>2</sup>, et H₂O avec <sub>.
+Note : <b> et <i> existent aussi, mais <strong> et <em> ont un SENS
+(un lecteur d'écran pour aveugle les lit avec une autre intonation).
+
+--------------------------------------------------------------------------------
+(d) CITATION : <blockquote>
+--------------------------------------------------------------------------------
+Mets la phrase dans <blockquote><p>...</p></blockquote> et l'auteur
+dans un <p> en dessous. → Observe le retrait.
+
+--------------------------------------------------------------------------------
+(e) SÉPARATEUR : <hr>
+--------------------------------------------------------------------------------
+Ajoute un <hr> entre la partie « Les débuts » et « Aujourd'hui ».
+
+--------------------------------------------------------------------------------
+(f) COMMENTAIRE : <!-- ... -->
+--------------------------------------------------------------------------------
+Transforme la ligne (f) en commentaire :  <!-- Cette ligne ... -->
+→ Elle disparaît de la page, mais reste visible avec Ctrl+U.
+   Donc : JAMAIS de mot de passe ou d'info secrète dans un commentaire HTML.
+Astuce VS Code : Ctrl+: (ou Ctrl+/) met/enlève un commentaire.
+
+--------------------------------------------------------------------------------
+(g) LA BALISE QUI NE FAIT RIEN : <span>
+--------------------------------------------------------------------------------
+Dans le paragraphe (b), entoure le mot « bille » d'un <span>.
+→ Rien ne change ! C'est normal : <span> sert à cibler un morceau de texte
+  pour le CSS (exercice 06). C'est une « poignée » sans signification.
+
+--------------------------------------------------------------------------------
+(h) CARACTÈRES SPÉCIAUX
+--------------------------------------------------------------------------------
+1. Mets la 1re ligne (h) dans un <p>. → Le <p> et le </p> du texte
+   disparaissent : le navigateur les prend pour de vraies balises !
+   Remplace < par &lt; et > par &gt;  → ça s'affiche.
+2. 2e ligne : remplace « Copyright » par &copy; et « & » par &amp;
+
+✔ Réussi quand : la page ressemble à un vrai petit article, avec une
+  hiérarchie de titres, et plus aucun repère (a), (b)…

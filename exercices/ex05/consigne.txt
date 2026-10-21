@@ -1,0 +1,99 @@
+================================================================================
+EXERCICE 05 — PREMIER CSS
+================================================================================
+Objectif : changer l'apparence d'une page, et connaître les 3 façons
+           d'écrire du CSS (une seule est la bonne en pratique).
+Fichiers : index.html, css/style.css (vide)
+Adresse  : http://127.0.0.1:5500/exercices/ex05/
+
+--------------------------------------------------------------------------------
+À SAVOIR
+--------------------------------------------------------------------------------
+HTML = le contenu.  CSS = l'apparence (couleurs, tailles, placement).
+Une règle CSS :
+      sélecteur {
+        propriété: valeur;
+        propriété: valeur;
+      }
+  Le SÉLECTEUR dit « à qui » on l'applique. Exemple :  p { color: blue; }
+  = « tous les paragraphes en bleu ». N'oublie pas les ; et les { }.
+
+--------------------------------------------------------------------------------
+(a) FAÇON 1 : L'ATTRIBUT style (dans la balise)
+--------------------------------------------------------------------------------
+Change le <h1> en :   <h1 style="color: red;">Le Café Flipper</h1>
+→ Le titre devient rouge. Simple… mais imagine 50 pages avec 20 titres
+  chacune : il faudrait modifier 1000 balises pour changer de couleur.
+
+--------------------------------------------------------------------------------
+(b) FAÇON 2 : LA BALISE <style> (dans le <head>)
+--------------------------------------------------------------------------------
+Dans le <head>, juste avant </head>, ajoute :
+    <style>
+      p {
+        color: blue;
+      }
+    </style>
+→ TOUS les paragraphes changent d'un coup. Mieux. Mais ça ne vaut que
+  pour CETTE page.
+
+--------------------------------------------------------------------------------
+(c) FAÇON 3 (LA BONNE) : UN FICHIER .css SÉPARÉ
+--------------------------------------------------------------------------------
+1. Dans le <head>, ajoute :   <link rel="stylesheet" href="css/style.css">
+2. Déplace la règle p { ... } du <style> vers css/style.css (sans les
+   balises <style>, un fichier .css ne contient QUE du CSS).
+3. Supprime la balise <style> vide et l'attribut style du <h1>, et écris
+   dans style.css :   h1 { color: red; }
+→ Même résultat, mais maintenant TOUTES les pages qui ont ce <link>
+  partagent la même apparence. C'est comme ça qu'on travaille.
+
+--------------------------------------------------------------------------------
+(d) LES COULEURS
+--------------------------------------------------------------------------------
+Essaie ces 4 écritures pour la couleur du <h1> (une à la fois) :
+    color: red;                  un nom (il en existe ~140)
+    color: #1d3557;              un code hexadécimal (le plus utilisé)
+    color: rgb(29, 53, 87);      rouge, vert, bleu de 0 à 255
+    color: rgba(29, 53, 87, 0.5);  la même, à moitié transparente
+Astuce VS Code : passe la souris sur une couleur dans le .css → une palette
+s'ouvre pour la choisir à la souris.
+
+--------------------------------------------------------------------------------
+(e) QUELQUES PROPRIÉTÉS DE BASE
+--------------------------------------------------------------------------------
+Dans style.css :
+    body {
+      background-color: #f4f1ea;          fond de toute la page
+      font-family: Arial, sans-serif;     police (sans-serif = de secours)
+    }
+    h2 {
+      font-size: 30px;                    taille du texte
+      background-color: #ffb703;          fond derrière le titre
+    }
+    li {
+      color: green;
+    }
+→ Remarque : le fond du h2 prend TOUTE la largeur. On comprendra pourquoi
+  à l'exercice 09.
+
+--------------------------------------------------------------------------------
+(f) QUI GAGNE ?
+--------------------------------------------------------------------------------
+1. Remets un attribut style="color: orange;" sur le 1er <p>.
+   → Orange gagne sur le bleu du fichier : le style dans la balise est
+     prioritaire. (C'est aussi pour ça qu'on l'évite : il écrase tout.)
+   Retire-le.
+2. Dans style.css, écris deux fois une règle pour h1, avec deux couleurs
+   différentes. → C'est la DERNIÈRE qui gagne (le C de CSS = cascade).
+
+--------------------------------------------------------------------------------
+(g) LES ERREURS SONT SILENCIEUSES
+--------------------------------------------------------------------------------
+Écris   colr: purple;   dans la règle li.
+→ Rien ne se passe, aucun message. Ouvre F12, clique sur un <li> :
+  dans le panneau « Styles », la ligne est barrée avec un ⚠.
+  Réflexe à prendre : « ça ne marche pas » → F12 → regarder les styles.
+
+✔ Réussi quand : il n'y a plus aucun CSS dans index.html (sauf le <link>)
+  et tout est dans css/style.css.

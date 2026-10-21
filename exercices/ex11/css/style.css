@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 20px 40px;
+  background-color: #f4f1ea;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== (a) à (e) Le terrain de jeu ===== */
+.rangee {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  border: 3px dashed #1d3557;
+  background-color: #ffffff;
+}
+
+.item {
+  width: 80px;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  background-color: #e63946;
+}
+
+/* ===== (f) Un vrai en-tête ===== */
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #1d3557;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: #ffb703;
+}
+
+/* ===== (g) Des cartes de même largeur ===== */
+.cartes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.carte {
+  flex: 1;
+  min-width: 220px;
+  padding: 20px;
+  border: 2px solid #1d3557;
+  border-radius: 12px;
+  background-color: #ffffff;
+}

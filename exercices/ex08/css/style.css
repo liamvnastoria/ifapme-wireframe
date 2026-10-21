@@ -1,0 +1,38 @@
+/* ===== (h) La largeur réelle : border-box pour tout ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== (i) La marge cachée du navigateur ===== */
+body {
+  margin: 0;
+  background-color: #f4f1ea;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== (a) (c) (d) (e) (g) (j) La boîte type ===== */
+.boite {
+  width: 300px;
+  padding: 20px;
+  border: 3px solid #1d3557;
+  margin: 20px auto;
+  border-radius: 12px;
+}
+
+/* ===== (j) Une boîte ronde ===== */
+.boite-1 {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #a8dadc;
+}
+
+.boite-2 {
+  background-color: #ffb703;
+}
+
+/* ===== (f) Les raccourcis de marge ===== */
+.boite-3 {
+  margin: 50px auto 30px auto;
+  background-color: #e9c46a;
+}
