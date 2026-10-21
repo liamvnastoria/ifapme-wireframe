@@ -1,0 +1,75 @@
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: #222222;
+  background-color: #f4f1ea;
+}
+
+.contenu {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 16px;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 0;
+  color: #1d3557;
+}
+
+/* ===== Image ===== */
+.cadre {
+  display: inline-block;
+  padding: 8px;
+  background-color: #ffffff;
+  border: 2px solid #1d3557;
+  border-radius: 12px;
+}
+
+.cadre img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* ===== Boutons ===== */
+.boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.boutons button {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1d3557;
+  background-color: #ffb703;
+  border: 2px solid #1d3557;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.boutons button:hover {
+  background-color: #ffffff;
+}
+
+.boutons button:focus-visible {
+  outline: 3px solid #e63946;
+  outline-offset: 2px;
+}
+
+/* ===== Légende ===== */
+.legende {
+  margin-top: 24px;
+  color: #555555;
+}
